@@ -4,12 +4,17 @@ const  userRouter = require("./routes/user");
 
 const PORT = 3000;
 
-app.use(express.static("public"));
+//静的ファイルを使う
+//app.use(express.static("public"));
+
+//テンプレートエンジンejsの指定
+app.set("view engine", "ejs");
 
 app.get("/", (req,res) => {
     //console.log("helo node.js")
     //res.send("<h1>こんにちは</h1>");
     //res.status(404).json({msg: "エラーです"});
+    res.render("index", {text: "node.jsとExpress"});
 })
 
 //ルーティング
