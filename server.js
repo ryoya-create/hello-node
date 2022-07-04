@@ -7,7 +7,7 @@ const PORT = 3000;
 //app.use(mylogger);
 
 //静的ファイルを使う
-//app.use(express.static("public"));
+app.use(express.static("public"));
 
 //テンプレートエンジンejsの指定
 app.set("view engine", "ejs");

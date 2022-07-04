@@ -9,9 +9,15 @@ const pool = new Pool({
     password: 'root',
 });
 pool.connect();
-pool.query("SELECT NOW()", (err, res) => {
-  console.log(err, res);
-  pool.end();
-});
+const query = {
+    text: "SELECT * FROM member",
+  };
+pool
+    .query(query)
+    .then((res) => {
+    console.log(res.rows[0],res.rows[1]);
+    client.end();
+    })
+    .catch((e) => console.error(e.stack));
 
 module.exports = pool;
