@@ -9,6 +9,7 @@ const pool = new Pool({
     password: 'root',
 });
 pool.connect();
+
 const query = {
     text: "SELECT * FROM member",
   };
@@ -16,6 +17,7 @@ pool
     .query(query)
     .then((res) => {
     console.log(res.rows[0],res.rows[1]);
+    console.log("DB接続問題無し");
     client.end();
     })
     .catch((e) => console.error(e.stack));

@@ -1,1 +1,1 @@
-alert("hello.js")
+//alert("hello script.js")
