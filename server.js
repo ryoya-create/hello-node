@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const userRouter = require("./routes/user");
+const authenticationRouter = require("./routes/authentication");
 const db =require("./db/pool");
 
 const PORT = 3000;
@@ -16,6 +17,7 @@ app.get("/", (req,res) => {
 })
 
 //ルーティング
+app.use("/authentication", authenticationRouter);
 app.use("/user", userRouter);
 
 
